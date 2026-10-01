@@ -3,83 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>FaSun | Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <h2 class="logo">MyPortfolio</h2>
+    <!-- Header -->
+    <header>
+        <div class="logo">FaSun.</div>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
 
-        <img src="profile.jpg" alt="My Profile Picture">
+        <div class="hero-content">
+            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
 
-        <h1>Hello, I'm Roland Onyekwere</h1>
+            <h1>Hi, I'm <span>Favour Sunday</span></h1>
 
-        <h3>Aspiring Software Developer</h3>
+            <h2>Frontend Developer</h2>
 
-        <p>
-            I am learning software development and building
-            projects to improve my programming skills.
-        </p>
+            <p>
+                I'm learning web development and building projects
+                to improve my HTML, CSS and programming skills.
+                Welcome to my 50 Days Coding Challenge.
+            </p>
 
-        <a href="#contact" class="btn">Contact Me</a>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="profile-circle">FS</div>
+            <h3>Favour Sunday</h3>
+            <p>Web Developer</p>
+        </div>
 
     </section>
 
 
     <!-- About Section -->
-    <section id="about">
+    <section class="section" id="about">
 
-        <h2>About Me</h2>
+        <h2 class="section-title">About <span>Me</span></h2>
 
-        <p>
-            My name is Roland Onyekwere. I am passionate about technology
-            and software development. I enjoy learning how websites
-            and applications are built.
+        <div class="about-content">
 
-            My goal is to become a professional software developer
-            and build solutions that solve real-world problems.
-        </p>
+            <div class="about-card">
+                <h3>Who Am I?</h3>
+
+                <p>
+                    I'm an aspiring web developer passionate about
+                    creating modern, responsive and user-friendly websites.
+                </p>
+
+                <p>
+                    I'm currently completing a 50 Days Coding Challenge
+                    where I build projects and improve my development
+                    skills every day.
+                </p>
+            </div>
+
+        </div>
 
     </section>
 
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section class="section dark-section" id="skills">
 
-        <h2>My Skills</h2>
+        <h2 class="section-title">My <span>Skills</span></h2>
 
         <div class="skills-container">
 
-            <div class="skill">
-                HTML
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Building structured and accessible web pages.</p>
             </div>
 
-            <div class="skill">
-                CSS
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Creating responsive and attractive website designs.</p>
             </div>
 
-            <div class="skill">
-                JavaScript
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Learning to build interactive web experiences.</p>
             </div>
 
-            <div class="skill">
-                Git & GitHub
+            <div class="skill-card">
+                <h3>Git & GitHub</h3>
+                <p>Managing and publishing my coding projects.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+                <div class="project-number">01</div>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    A responsive personal portfolio built using HTML and CSS.
+                </p>
+
+                <span>HTML • CSS</span>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-number">02</div>
+
+                <h3>Coming Soon</h3>
+
+                <p>
+                    More projects will be added as I continue my
+                    50 Days Coding Challenge.
+                </p>
+
+                <span>50 Days Challenge</span>
             </div>
 
         </div>
@@ -88,18 +153,24 @@
 
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section class="section dark-section" id="contact">
 
-        <h2>Contact Me</h2>
+        <h2 class="section-title">Contact <span>Me</span></h2>
 
-        <p>Email: rolandonyekwere@gmail.com</p>
+        <div class="contact-box">
 
-        <p>
-            GitHub:
-            <a href="https://github.com/devrolec" target="_blank">
-                github.com/devrolec
+            <h3>Let's Work Together</h3>
+
+            <p>
+                Have a project or want to connect?
+                Feel free to reach out to me.
+            </p>
+
+            <a href="mailto:your@email.com" class="btn">
+                Send Me an Email
             </a>
-        </p>
+
+        </div>
 
     </section>
 
@@ -108,7 +179,7 @@
     <footer>
 
         <p>
-            &copy; 2026 Roland Onyekwere | 50 Projects in 50 Days Challenge
+            © 2026 Favour Sunday | 50 Days Coding Challenge
         </p>
 
     </footer>
