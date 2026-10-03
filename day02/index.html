@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A clean, responsive registration form built with HTML and CSS.">
+  <title>Create Account | Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="intro" aria-label="Welcome">
+      <a class="brand" href="index.html" aria-label="FaSun home"><span class="brand-mark">F</span> FaSun</a>
+      <div class="intro-content">
+        <span class="eyebrow">WELCOME ABOARD</span>
+        <h1>A fresh start begins here.</h1>
+        <p>Create your account and join a community built for what comes next.</p>
+        <div class="accent-line" aria-hidden="true"></div>
+      </div>
+      <p class="intro-footer">Simple. Secure. Made for you.</p>
+    </section>
+
+    <section class="form-section" aria-labelledby="form-title">
+      <div class="form-wrap">
+        <span class="eyebrow orange">GET STARTED</span>
+        <h2 id="form-title">Create an account</h2>
+        <p class="subheading">Fill in your details to get started.</p>
+
+        <!-- Replace action="#" with your server endpoint when adding a backend. -->
+        <form action="#" method="post">
+          <div class="field-row">
+            <div class="field">
+              <label for="first-name">First name</label>
+              <input id="first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Enter first name" required maxlength="50">
+            </div>
+            <div class="field">
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Enter last name" required maxlength="50">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number <span class="optional">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+234 800 000 0000">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required aria-describedby="password-help">
+            </div>
+            <div class="field">
+              <label for="confirm-password">Confirm password</label>
+              <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" placeholder="Repeat password" minlength="8" required>
+            </div>
+          </div>
+          <p id="password-help" class="hint">Use at least 8 characters. Matching passwords require server validation.</p>
+
+          <label class="check-row" for="terms">
+            <input id="terms" name="terms" type="checkbox" required>
+            <span>I agree to the <a href="#terms-info">Terms of Service</a> and <a href="#privacy-info">Privacy Policy</a>.</span>
+          </label>
+
+          <button type="submit">Create account <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="sign-in">Already have an account? <a href="#login-info">Sign in</a></p>
+        <p class="demo-note" id="terms-info">Demo page: add your real Terms of Service link before publishing a live service.</p>
+        <p class="demo-note" id="privacy-info">Add your real Privacy Policy link before collecting user details.</p>
+        <p class="demo-note" id="login-info">Connect this link to your login page when it is ready.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

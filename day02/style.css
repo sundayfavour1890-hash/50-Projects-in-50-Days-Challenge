@@ -1,0 +1,43 @@
+:root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: #172321; background: #f9faf7; }
+a { color: #db5b23; font-weight: 650; text-underline-offset: 3px; }
+a:hover { color: #a94012; }
+a:focus-visible, input:focus-visible, button:focus-visible { outline: 3px solid #f5a16b; outline-offset: 3px; }
+.page { display: grid; grid-template-columns: minmax(320px, 42%) 1fr; min-height: 100vh; }
+.intro { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(32px, 5vw, 76px); background: #153b31; color: #fff; position: relative; overflow: hidden; }
+.intro::after { content: ""; position: absolute; width: 420px; height: 420px; right: -180px; bottom: -150px; border-radius: 50%; border: 90px solid rgba(246, 144, 82, .12); pointer-events: none; }
+.brand { display: inline-flex; align-items: center; gap: 11px; align-self: flex-start; color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: 800; letter-spacing: -.04em; }
+.brand:hover { color: #fff; }
+.brand-mark { display: grid; place-items: center; width: 35px; height: 35px; background: #f28a4a; color: #183a31; border-radius: 10px; font-weight: 900; }
+.intro-content { max-width: 480px; position: relative; z-index: 1; }
+.eyebrow { font-size: .74rem; font-weight: 800; letter-spacing: .16em; color: #f8a46f; }
+h1 { font-size: clamp(2.7rem, 5vw, 5.2rem); line-height: 1.06; letter-spacing: -.055em; margin: 22px 0; }
+.intro-content p { max-width: 340px; font-size: 1.08rem; line-height: 1.7; color: #d2e2d8; }
+.accent-line { margin-top: 32px; width: 57px; height: 4px; background: #f28a4a; border-radius: 4px; }
+.intro-footer { font-size: .88rem; color: #aac9b8; }
+.form-section { display: grid; place-items: center; padding: 48px clamp(24px, 7vw, 110px); }
+.form-wrap { width: 100%; max-width: 540px; }
+.orange { color: #c9501e; }
+h2 { font-size: clamp(2rem, 3vw, 2.65rem); letter-spacing: -.045em; margin: 10px 0 7px; }
+.subheading { margin: 0 0 32px; color: #64716c; }
+form { display: grid; gap: 19px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+.field { display: grid; gap: 8px; min-width: 0; }
+.field label { font-size: .88rem; font-weight: 700; }
+.optional, .hint { color: #737e78; font-weight: 400; }
+.field input { width: 100%; min-width: 0; border: 1px solid #d5dfd8; border-radius: 11px; padding: 13px 14px; min-height: 48px; font: inherit; background: #fff; color: #172321; transition: border-color .2s, box-shadow .2s; }
+.field input::placeholder { color: #89958f; }
+.field input:hover { border-color: #9db7a8; }
+.field input:focus { border-color: #2f7558; box-shadow: 0 0 0 3px rgba(47, 117, 88, .12); outline: none; }
+.hint { margin: -11px 0 0; font-size: .78rem; line-height: 1.5; }
+.check-row { display: flex; gap: 11px; align-items: flex-start; font-size: .86rem; line-height: 1.6; color: #45534c; cursor: pointer; }
+.check-row input { width: 17px; height: 17px; flex: none; margin: 3px 0 0; accent-color: #287657; }
+button { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 51px; border: 0; border-radius: 11px; background: #e66b32; color: #fff; font: inherit; font-weight: 750; cursor: pointer; transition: background .2s, transform .2s; }
+button:hover { background: #c9501e; transform: translateY(-1px); }
+.sign-in { margin: 25px 0 0; text-align: center; color: #64716c; font-size: .9rem; }
+.demo-note { color: #718078; font-size: .75rem; line-height: 1.5; margin: 12px 0 0; }
+.demo-note:first-of-type { margin-top: 30px; }
+@media (max-width: 800px) { .page { grid-template-columns: 1fr; } .intro { min-height: 280px; gap: 35px; padding: 28px; } .intro-content h1 { font-size: 2.5rem; margin: 10px 0; } .intro-content p { margin: 0; } .intro-footer, .accent-line { display: none; } .form-section { padding: 42px 22px 60px; } }
+@media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } .intro { min-height: 260px; } }
