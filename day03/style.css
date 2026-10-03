@@ -76,13 +76,6 @@ button:hover {
   background: #1d4ed8;
 }
 
-.note {
-  margin: 18px 0 0;
-  color: #64748b;
-  font-size: 13px;
-  text-align: center;
-}
-
 @media (max-width: 420px) {
   .login-form {
     padding: 24px;
