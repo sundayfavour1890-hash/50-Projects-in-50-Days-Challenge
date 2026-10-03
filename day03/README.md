@@ -18,4 +18,3 @@ Open index.html in your browser. If you use the Live Server extension in VS Code
 - `type="password"` hides the password as it is typed.
 - `display: flex` on `.container` helps center the form on the page.
 
-## Note
