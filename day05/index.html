@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock | Day 05</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="clock-wrapper">
+        <div class="clock-card">
+
+            <p class="label">Digital Clock</p>
+
+            <div class="time">
+                <span id="hours">00</span>
+                <span class="colon">:</span>
+                <span id="minutes">00</span>
+                <span class="colon">:</span>
+                <span id="seconds">00</span>
+                <span id="ampm">AM</span>
+            </div>
+
+            <div class="date" id="date">
+                Monday, January 1, 2026
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+        const ampmElement = document.getElementById("ampm");
+        const dateElement = document.getElementById("date");
+
+        function updateClock() {
+            const now = new Date();
+
+            let hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const ampm = hours >= 12 ? "PM" : "AM";
+
+            // Convert 24-hour time to 12-hour time
+            hours = hours % 12;
+            hours = hours === 0 ? 12 : hours;
+
+            hoursElement.textContent = String(hours).padStart(2, "0");
+            minutesElement.textContent = String(minutes).padStart(2, "0");
+            secondsElement.textContent = String(seconds).padStart(2, "0");
+
+            ampmElement.textContent = ampm;
+
+            const dateOptions = {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            };
+
+            dateElement.textContent = now.toLocaleDateString(
+                "en-US",
+                dateOptions
+            );
+        }
+
+        updateClock();
+
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+</html>
