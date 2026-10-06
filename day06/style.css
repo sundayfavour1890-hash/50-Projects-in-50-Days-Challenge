@@ -1,0 +1,145 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #f6f7fb;
+  background: #101827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 280px;
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle, #53c904, #101827);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.eyebrow,
+.label,
+footer {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #aeb9ca;
+}
+
+.eyebrow {
+  width: min(100%, 460px);
+}
+
+.counter-card {
+  width: min(100%, 460px);
+  padding: 32px;
+  border: 1px solid #8610ca;
+  border-radius: 22px;
+  background: #081b3ac7;
+  box-shadow: 0 30px 70px #060c18aa;
+}
+
+h1 {
+  margin: 28px 0 6px;
+  font-size: clamp(34px, 8vw, 46px);
+  letter-spacing: -0.05em;
+}
+
+h1 span {
+  color: #bff278;
+}
+
+.subtitle {
+  margin: 0;
+  color: #b6c2d1;
+  font-size: 14px;
+}
+
+.display {
+  height: 200px;
+  display: grid;
+  place-items: center;
+  margin-top: 26px;
+  border: 1px solid #536173;
+  border-radius: 15px;
+  background: #152233;
+  overflow: hidden;
+}
+
+#count {
+  padding: 10px;
+  font-size: clamp(68px, 20vw, 110px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+button {
+  height: 62px;
+  border: 1px solid #56677b;
+  border-radius: 12px;
+  background: #334358;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #40546c;
+}
+
+button:focus-visible {
+  outline: 3px solid #bff278;
+  outline-offset: 3px;
+}
+
+#reset {
+  background: transparent;
+  font-size: 14px;
+}
+
+#increment {
+  border-color: #c9f791;
+  background: #bff278;
+  color: #192834;
+}
+
+#increment:hover {
+  background: #d0ffa0;
+}
+
+.hint {
+  margin: 23px 0 0;
+  text-align: center;
+  color: #9fc0a3;
+  font-size: 12px;
+}
+
+footer {
+  margin-top: 25px;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .counter-card {
+    padding: 24px;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+}
