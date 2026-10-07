@@ -1,0 +1,73 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #24332b;
+  background: #f4f6f1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.todo {
+  width: min(100%, 520px);
+  background: white;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 18px 45px #24332b18;
+}
+
+.eyebrow {
+  color: #5c8169;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.intro { color: #728077; margin: 10px 0 30px; }
+h2 { font-size: 18px; margin: 0 0 16px; }
+ul { list-style: none; padding: 0; margin: 0; }
+li { border-top: 1px solid #e8eee8; }
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 2px;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+input[type="checkbox"] {
+  width: 21px;
+  height: 21px;
+  flex: none;
+  accent-color: #3c7751;
+  cursor: pointer;
+}
+
+input:checked + span {
+  color: #9ba79e;
+  text-decoration: line-through;
+}
+
+.note { margin: 22px 0 0; color: #8b978e; font-size: 13px; }
+
+@media (max-width: 480px) {
+  .todo { padding: 26px 22px; }
+  h1 { font-size: 42px; }
+}
