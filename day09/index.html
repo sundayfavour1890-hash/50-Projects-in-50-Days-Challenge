@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short general knowledge quiz built with HTML and CSS.">
+  <title>Quick Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="intro">
+      <span class="badge">THE MINI QUIZ</span>
+      <h1>How much do you know<span>?</span></h1>
+      <p>Five quick questions. Choose one answer per question to see how you did.</p>
+    </header>
+
+    <section class="quiz" aria-label="General knowledge quiz">
+      <fieldset class="question">
+        <legend><span class="number">01</span> What is the largest planet in our solar system?</legend>
+        <div class="answers">
+          <label class="answer"><input type="radio" name="q1"><span>Mars</span><small>Not quite</small></label>
+          <label class="answer correct"><input type="radio" name="q1"><span>Jupiter</span><small>Correct!</small></label>
+          <label class="answer"><input type="radio" name="q1"><span>Earth</span><small>Not quite</small></label>
+          <label class="answer"><input type="radio" name="q1"><span>Venus</span><small>Not quite</small></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend><span class="number">02</span> Which language is used to style a web page?</legend>
+        <div class="answers">
+          <label class="answer"><input type="radio" name="q2"><span>HTML</span><small>Not quite</small></label>
+          <label class="answer correct"><input type="radio" name="q2"><span>CSS</span><small>Correct!</small></label>
+          <label class="answer"><input type="radio" name="q2"><span>SQL</span><small>Not quite</small></label>
+          <label class="answer"><input type="radio" name="q2"><span>Python</span><small>Not quite</small></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend><span class="number">03</span> How many sides does a hexagon have?</legend>
+        <div class="answers">
+          <label class="answer"><input type="radio" name="q3"><span>Five</span><small>Not quite</small></label>
+          <label class="answer correct"><input type="radio" name="q3"><span>Six</span><small>Correct!</small></label>
+          <label class="answer"><input type="radio" name="q3"><span>Seven</span><small>Not quite</small></label>
+          <label class="answer"><input type="radio" name="q3"><span>Eight</span><small>Not quite</small></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend><span class="number">04</span> What is the chemical symbol for gold?</legend>
+        <div class="answers">
+          <label class="answer"><input type="radio" name="q4"><span>Ag</span><small>Not quite</small></label>
+          <label class="answer"><input type="radio" name="q4"><span>Fe</span><small>Not quite</small></label>
+          <label class="answer correct"><input type="radio" name="q4"><span>Au</span><small>Correct!</small></label>
+          <label class="answer"><input type="radio" name="q4"><span>Cu</span><small>Not quite</small></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend><span class="number">05</span> Which ocean is the largest?</legend>
+        <div class="answers">
+          <label class="answer correct"><input type="radio" name="q5"><span>Pacific Ocean</span><small>Correct!</small></label>
+          <label class="answer"><input type="radio" name="q5"><span>Atlantic Ocean</span><small>Not quite</small></label>
+          <label class="answer"><input type="radio" name="q5"><span>Indian Ocean</span><small>Not quite</small></label>
+          <label class="answer"><input type="radio" name="q5"><span>Arctic Ocean</span><small>Not quite</small></label>
+        </div>
+      </fieldset>
+    </section>
+
+    <footer class="footer">
+      <p>Finished? Count your “Correct!” answers for a score out of 5.</p>
+      <a href="index.html">Start again ↺</a>
+    </footer>
+  </main>
+</body>
+</html>
