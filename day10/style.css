@@ -1,0 +1,176 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #20283a;
+  background: hsl(286, 92%, 20%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  display: grid;
+  place-items: center;
+}
+
+.calculator {
+  width: min(100%, 760px);
+  padding: clamp(24px, 5vw, 48px);
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px #26395618;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 30px;
+  background: #e9efff;
+  color: #315bb2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+h1 {
+  margin: 18px 0 8px;
+  font-size: clamp(32px, 6vw, 48px);
+  letter-spacing: -.04em;
+}
+
+header p,
+.hint {
+  color: #657086;
+  line-height: 1.6;
+}
+
+header p {
+  margin: 0 0 32px;
+}
+
+.table-heading,
+.grade-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 12px;
+}
+
+.table-heading {
+  padding: 0 0 10px;
+  color: #657086;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.grade-row {
+  position: relative;
+  padding: 20px 0;
+  border-top: 1px solid #e5eaf2;
+}
+
+.grade-row label {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  color: #657086;
+  font-size: 11px;
+}
+
+.grade-row input {
+  min-width: 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d5ddea;
+  border-radius: 9px;
+  background: lightgray;
+  color: #20283a;
+  font: inherit;
+}
+
+.grade-row input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #9dbaf5;
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 13px 18px;
+  border: 1px solid #315bb2;
+  border-radius: 9px;
+  background: #315bb2;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #244991;
+}
+
+button.secondary {
+  background: #fff;
+  color: #315bb2;
+}
+
+button.secondary:hover {
+  background: #f0f5ff;
+}
+
+.result {
+  margin-top: 32px;
+  padding: 25px;
+  border-radius: 14px;
+  background: #edf4ff;
+}
+
+.result-label {
+  margin: 0;
+  color: #315bb2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+}
+
+.result-value {
+  margin: 10px 0 4px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+#result-message {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hint {
+  margin: 20px 0 0;
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  .table-heading {
+    display: none;
+  }
+
+  .grade-row {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 29px;
+  }
+
+  .grade-row input[type="text"] {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculate a weighted course grade.">
+  <title>Grade Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calculator">
+    <header>
+      <span class="badge">STUDENT TOOL</span>
+      <h1>Grade Calculator</h1>
+      <p>Enter your scores and their weights to find your final grade.</p>
+    </header>
+
+    <form id="grade-form">
+      <div class="table-heading" aria-hidden="true">
+        <span>Assessment</span>
+        <span>Score (%)</span>
+        <span>Weight (%)</span>
+      </div>
+
+      <div class="grade-row">
+        <label for="name-1">Assessment 1</label>
+        <input id="name-1" type="text" value="Assignments" aria-label="Assessment 1 name">
+        <input type="number" class="score" min="0" max="100" step="0.01" placeholder="e.g. 85" aria-label="Assignments score">
+        <input type="number" class="weight" min="0" max="100" step="0.01" placeholder="e.g. 30" aria-label="Assignments weight">
+      </div>
+
+      <div class="grade-row">
+        <label for="name-2">Assessment 2</label>
+        <input id="name-2" type="text" value="Midterm" aria-label="Assessment 2 name">
+        <input type="number" class="score" min="0" max="100" step="0.01" placeholder="e.g. 78" aria-label="Midterm score">
+        <input type="number" class="weight" min="0" max="100" step="0.01" placeholder="e.g. 30" aria-label="Midterm weight">
+      </div>
+
+      <div class="grade-row">
+        <label for="name-3">Assessment 3</label>
+        <input id="name-3" type="text" value="Final exam" aria-label="Assessment 3 name">
+        <input type="number" class="score" min="0" max="100" step="0.01" placeholder="e.g. 90" aria-label="Final exam score">
+        <input type="number" class="weight" min="0" max="100" step="0.01" placeholder="e.g. 40" aria-label="Final exam weight">
+      </div>
+
+      <div class="actions">
+        <button type="submit">Calculate grade</button>
+        <button type="reset" class="secondary">Clear scores</button>
+      </div>
+    </form>
+
+    <section class="result" aria-live="polite" aria-atomic="true">
+      <p class="result-label">YOUR RESULT</p>
+      <p id="result-value" class="result-value">—</p>
+      <p id="result-message">Enter your grades to get started.</p>
+    </section>
+
+    <p class="hint">The weights must add up to 100%. Letter grades use A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, and F below 60.</p>
+  </main>
+
+</body>
+</html>
