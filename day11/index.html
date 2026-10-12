@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">YOUR DAILY FORECAST</p>
+      <h1>Weather App</h1>
+      <p>Search for a city to see its weather.</p>
+    </header>
+
+    <form id="search-form">
+      <label for="city">City name</label>
+      <div class="search-row">
+        <input id="city" name="city" type="search"
+               placeholder="Try Lagos or London" required>
+        <button type="submit">Search</button>
+      </div>
+    </form>
+
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <section id="weather" class="weather hidden" aria-label="Weather results">
+      <div class="current">
+        <div>
+          <p id="location" class="location"></p>
+          <p id="updated" class="updated"></p>
+          <div id="temperature" class="temperature"></div>
+          <p id="description" class="description"></p>
+        </div>
+        <div id="weather-icon" class="weather-icon" aria-hidden="true"></div>
+      </div>
+
+      <div class="details">
+        <div><span>Feels like</span><strong id="feels-like"></strong></div>
+        <div><span>Humidity</span><strong id="humidity"></strong></div>
+        <div><span>Wind speed</span><strong id="wind"></strong></div>
+      </div>
+
+      <h2>Next 3 days</h2>
+      <div id="forecast" class="forecast"></div>
+    </section>
+
+    <footer>
+      Weather data by
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">
+        Open-Meteo
+      </a>
+    </footer>
+  </main>
+
+</body>
+</html>
