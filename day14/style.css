@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 36px 16px;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f8fafc;
+  background: radial-gradient(circle at top, #26376e, #10172d 70%);
+}
+
+.app {
+  width: min(100%, 520px);
+}
+
+header {
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #a6f3d1;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+header p:last-child,
+.tip {
+  color: #bac4da;
+  line-height: 1.5;
+}
+
+.card {
+  padding: 28px;
+  border: 1px solid #465174;
+  border-radius: 20px;
+  background: #202b4b;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+}
+
+.output-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.output-row {
+  display: flex;
+  gap: 10px;
+}
+
+#password {
+  min-width: 0;
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #647092;
+  border-radius: 10px;
+  color: #fff;
+  background: #131d38;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#copy-button {
+  padding: 0 18px;
+  color: #102c2a;
+  background: #a6f3d1;
+}
+
+#copy-button:hover,
+.generate-button:hover {
+  background: #c3ffe4;
+}
+
+#message {
+  min-height: 22px;
+  margin: 10px 0 26px;
+  color: #a6f3d1;
+  font-size: 0.9rem;
+}
+
+.length-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.length-heading strong {
+  color: #a6f3d1;
+  font-size: 1.5rem;
+}
+
+#length {
+  width: 100%;
+  margin: 14px 0 26px;
+  accent-color: #a6f3d1;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #3c486a;
+  cursor: pointer;
+}
+
+.option small {
+  margin-left: 6px;
+  color: #aab6cf;
+}
+
+.option input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: #a6f3d1;
+  cursor: pointer;
+}
+
+.generate-button {
+  width: 100%;
+  margin-top: 26px;
+  padding: 15px;
+  color: #102c2a;
+  background: #a6f3d1;
+}
+
+.tip {
+  margin: 22px 4px 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .card {
+    padding: 20px;
+  }
+
+  .output-row {
+    flex-direction: column;
+  }
+
+  #copy-button {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">KEEP YOUR ACCOUNTS SAFER</p>
+      <h1>Password Generator</h1>
+      <p>Create a random password with the options you choose.</p>
+    </header>
+
+    <section class="card" aria-label="Password generator">
+      <label class="output-label" for="password">Generated password</label>
+
+      <div class="output-row">
+        <input
+          id="password"
+          type="text"
+          placeholder="Your password will appear here"
+          readonly
+          aria-label="Generated password"
+        >
+        <button id="copy-button" type="button">Copy</button>
+      </div>
+
+      <p id="message" role="status" aria-live="polite"></p>
+
+      <div class="length-heading">
+        <label for="length">Password length</label>
+        <strong id="length-value">16</strong>
+      </div>
+      <input id="length" type="range" min="8" max="32" value="16">
+
+      <fieldset>
+        <legend>Include characters</legend>
+
+        <label class="option">
+          <span>Uppercase letters <small>A–Z</small></span>
+          <input id="uppercase" type="checkbox" checked>
+        </label>
+
+        <label class="option">
+          <span>Lowercase letters <small>a–z</small></span>
+          <input id="lowercase" type="checkbox" checked>
+        </label>
+
+        <label class="option">
+          <span>Numbers <small>0–9</small></span>
+          <input id="numbers" type="checkbox" checked>
+        </label>
+
+        <label class="option">
+          <span>Symbols <small>! @ # ...</small></span>
+          <input id="symbols" type="checkbox" checked>
+        </label>
+      </fieldset>
+
+      <button id="generate-button" class="generate-button" type="button">
+        Generate password
+      </button>
+    </section>
+
+    <p class="tip">
+      Tip: Use a different password for each account and store it in a
+      trusted password manager.
+    </p>
+  </main>
+
+  <script>
+    const characterGroups = [
+      {
+        checkbox: document.querySelector("#uppercase"),
+        characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      },
+      {
+        checkbox: document.querySelector("#lowercase"),
+        characters: "abcdefghijklmnopqrstuvwxyz"
+      },
+      {
+        checkbox: document.querySelector("#numbers"),
+        characters: "0123456789"
+      },
+      {
+        checkbox: document.querySelector("#symbols"),
+        characters: "!@#$%^&*()-_=+[]{}?"
+      }
+    ];
+
+    const passwordInput = document.querySelector("#password");
+    const lengthInput = document.querySelector("#length");
+    const lengthValue = document.querySelector("#length-value");
+    const message = document.querySelector("#message");
+
+    // Rejection sampling avoids favoring some characters over others.
+    function randomIndex(max) {
+      const limit = 256 - (256 % max);
+      const byte = new Uint8Array(1);
+
+      do {
+        crypto.getRandomValues(byte);
+      } while (byte[0] >= limit);
+
+      return byte[0] % max;
+    }
+
+    function pick(characters) {
+      return characters[randomIndex(characters.length)];
+    }
+
+    function generatePassword() {
+      const selected = characterGroups.filter(group => group.checkbox.checked);
+
+      if (selected.length === 0) {
+        passwordInput.value = "";
+        message.textContent = "Choose at least one character option.";
+        return;
+      }
+
+      const length = Number(lengthInput.value);
+      const allCharacters = selected.map(group => group.characters).join("");
+
+      // Add one from every selected group, then fill the remaining places.
+      const result = selected.map(group => pick(group.characters));
+
+      while (result.length < length) {
+        result.push(pick(allCharacters));
+      }
+
+      // Shuffle so the guaranteed characters are not always at the start.
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = randomIndex(i + 1);
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+
+      passwordInput.value = result.join("");
+      message.textContent = "New password generated.";
+    }
+
+    async function copyPassword() {
+      if (!passwordInput.value) {
+        message.textContent = "Generate a password first.";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(passwordInput.value);
+        message.textContent = "Password copied to clipboard.";
+      } catch {
+        passwordInput.select();
+        message.textContent =
+          "Clipboard access is unavailable. Press Ctrl+C to copy the selected password.";
+      }
+    }
+
+    lengthInput.addEventListener("input", () => {
+      lengthValue.textContent = lengthInput.value;
+    });
+
+    document.querySelector("#generate-button")
+      .addEventListener("click", generatePassword);
+
+    document.querySelector("#copy-button")
+      .addEventListener("click", copyPassword);
+
+    generatePassword();
+  </script>
+</body>
+</html>
