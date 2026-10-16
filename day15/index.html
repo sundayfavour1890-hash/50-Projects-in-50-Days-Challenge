@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">HEALTH TOOL</p>
+      <h1>BMI Calculator</h1>
+      <p>Calculate your body mass index using your height and weight.</p>
+    </header>
+
+    <section class="card">
+      <form id="bmi-form">
+        <fieldset class="unit-picker">
+          <legend>Choose units</legend>
+
+          <label>
+            <input type="radio" name="units" value="metric" checked>
+            Metric
+          </label>
+
+          <label>
+            <input type="radio" name="units" value="imperial">
+            Imperial
+          </label>
+        </fieldset>
+
+        <div id="metric-fields">
+          <div class="field">
+            <label for="height-cm">Height (cm)</label>
+            <input id="height-cm" type="number" min="1" step="0.1"
+                   placeholder="e.g. 170" required>
+          </div>
+
+          <div class="field">
+            <label for="weight-kg">Weight (kg)</label>
+            <input id="weight-kg" type="number" min="0.1" step="0.1"
+                   placeholder="e.g. 65" required>
+          </div>
+        </div>
+
+        <div id="imperial-fields" hidden>
+          <div class="two-columns">
+            <div class="field">
+              <label for="height-ft">Height (feet)</label>
+              <input id="height-ft" type="number" min="0" step="1"
+                     placeholder="e.g. 5">
+            </div>
+
+            <div class="field">
+              <label for="height-in">Extra inches</label>
+              <input id="height-in" type="number" min="0" max="11.99"
+                     step="0.01" placeholder="e.g. 7">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="weight-lb">Weight (lb)</label>
+            <input id="weight-lb" type="number" min="0.1" step="0.1"
+                   placeholder="e.g. 145">
+          </div>
+        </div>
+
+        <button type="submit">Calculate BMI</button>
+      </form>
+
+      <p id="error" class="error" role="alert" hidden></p>
+
+      <section id="result" class="result" aria-live="polite" hidden>
+        <p>Your BMI</p>
+        <strong id="bmi-value"></strong>
+        <span id="bmi-category"></span>
+      </section>
+    </section>
+
+    <section class="guide">
+      <h2>Adult BMI categories</h2>
+      <ul>
+        <li><span>Underweight</span><strong>Below 18.5</strong></li>
+        <li><span>Healthy weight</span><strong>18.5–24.9</strong></li>
+        <li><span>Overweight</span><strong>25.0–29.9</strong></li>
+        <li><span>Obesity</span><strong>30.0 or above</strong></li>
+      </ul>
+      <p>
+        For adults aged 20 and older. BMI does not measure body composition
+        directly and should be considered with other health information.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#bmi-form");
+    const metricFields = document.querySelector("#metric-fields");
+    const imperialFields = document.querySelector("#imperial-fields");
+    const result = document.querySelector("#result");
+    const error = document.querySelector("#error");
+
+    document.querySelectorAll('input[name="units"]').forEach(radio => {
+      radio.addEventListener("change", () => {
+        const metric = radio.value === "metric" && radio.checked;
+        if (!radio.checked) return;
+
+        metricFields.hidden = !metric;
+        imperialFields.hidden = metric;
+
+        document.querySelector("#height-cm").required = metric;
+        document.querySelector("#weight-kg").required = metric;
+        document.querySelector("#height-ft").required = !metric;
+        document.querySelector("#height-in").required = !metric;
+        document.querySelector("#weight-lb").required = !metric;
+
+        result.hidden = true;
+        error.hidden = true;
+      });
+    });
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const units = document.querySelector(
+        'input[name="units"]:checked'
+      ).value;
+
+      let heightMeters;
+      let weightKg;
+
+      if (units === "metric") {
+        heightMeters = Number(
+          document.querySelector("#height-cm").value
+        ) / 100;
+        weightKg = Number(
+          document.querySelector("#weight-kg").value
+        );
+      } else {
+        const feet = Number(document.querySelector("#height-ft").value);
+        const inches = Number(document.querySelector("#height-in").value);
+        const pounds = Number(document.querySelector("#weight-lb").value);
+
+        heightMeters = (feet * 12 + inches) * 0.0254;
+        weightKg = pounds * 0.45359237;
+      }
+
+      if (
+        !Number.isFinite(heightMeters) ||
+        !Number.isFinite(weightKg) ||
+        heightMeters <= 0 ||
+        weightKg <= 0
+      ) {
+        error.textContent = "Enter a valid height and weight greater than zero.";
+        error.hidden = false;
+        result.hidden = true;
+        return;
+      }
+
+      const bmi = weightKg / (heightMeters * heightMeters);
+
+      let category;
+      if (bmi < 18.5) {
+        category = "Underweight";
+      } else if (bmi < 25) {
+        category = "Healthy weight";
+      } else if (bmi < 30) {
+        category = "Overweight";
+      } else {
+        category = "Obesity";
+      }
+
+      document.querySelector("#bmi-value").textContent = bmi.toFixed(1);
+      document.querySelector("#bmi-category").textContent = category;
+
+      error.hidden = true;
+      result.hidden = false;
+    });
+  </script>
+</body>
+</html>
