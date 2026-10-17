@@ -1,0 +1,12 @@
+# Image Gallery
+
+A responsive image gallery built with HTML and CSS.
+
+## How to run
+
+Keep `index.html` and `style.css` in the same folder.
+Open `index.html` in a browser.
+
+The sample images load from picsum.photos, so an internet connection
+is needed to see them. To use your own photos, replace each image's
+`src` value with the path to your photo.
