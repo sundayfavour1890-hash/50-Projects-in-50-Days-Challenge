@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Validation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Create an account</h1>
+    <p>Complete all fields to submit the form.</p>
+
+    <form action="#" method="get">
+      <label for="name">Full name</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        minlength="2"
+        maxlength="60"
+        autocomplete="name"
+        placeholder="Your full name"
+        required
+      >
+      <small>At least 2 characters.</small>
+
+      <label for="email">Email address</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        placeholder="you@example.com"
+        required
+      >
+      <small>Enter a valid email address.</small>
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        minlength="8"
+        autocomplete="new-password"
+        placeholder="At least 8 characters"
+        required
+      >
+      <small>At least 8 characters.</small>
+
+      <label class="checkbox">
+        <input type="checkbox" name="terms" required>
+        <span>I agree to the terms</span>
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</body>
+</html>

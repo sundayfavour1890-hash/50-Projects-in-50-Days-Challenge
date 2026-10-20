@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="search-app">
+    <div class="icon" aria-hidden="true">⌕</div>
+    <h1>Find what you need</h1>
+    <p>Search the web from one simple place.</p>
+
+    <form action="https://www.google.com/search" method="get">
+      <label for="query">Search the web</label>
+      <div class="search-box">
+        <input
+          id="query"
+          name="q"
+          type="search"
+          placeholder="What are you looking for?"
+          autocomplete="off"
+          required
+        >
+        <button type="submit">Search</button>
+      </div>
+    </form>
+
+    <p class="note">Results open on Google.</p>
+  </main>
+</body>
+</html>

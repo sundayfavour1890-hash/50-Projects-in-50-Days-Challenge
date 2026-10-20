@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="converter">
+    <p class="tag">CURRENCY TOOLS</p>
+    <h1>Currency Converter</h1>
+    <p class="description">A clean interface for converting money.</p>
+
+    <form>
+      <label for="amount">Amount</label>
+      <input
+        id="amount"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Enter an amount"
+      >
+
+      <div class="currency-row">
+        <div>
+          <label for="from">From</label>
+          <select id="from">
+            <option value="USD">USD — US Dollar</option>
+            <option value="NGN">NGN — Nigerian Naira</option>
+            <option value="EUR">EUR — Euro</option>
+            <option value="GBP">GBP — British Pound</option>
+          </select>
+        </div>
+
+        <span class="arrow" aria-hidden="true">→</span>
+
+        <div>
+          <label for="to">To</label>
+          <select id="to">
+            <option value="NGN">NGN — Nigerian Naira</option>
+            <option value="USD">USD — US Dollar</option>
+            <option value="EUR">EUR — Euro</option>
+            <option value="GBP">GBP — British Pound</option>
+          </select>
+        </div>
+      </div>
+    </form>
+
+    <section class="result" aria-label="Conversion result">
+      <span>Conversion result</span>
+      <strong>—</strong>
+      <small>Calculation is not available in this HTML/CSS version.</small>
+    </section>
+  </main>
+</body>
+</html>
