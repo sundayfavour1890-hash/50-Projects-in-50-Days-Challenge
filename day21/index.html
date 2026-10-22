@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CineFind | Movie Search App</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">🎬 Cine<span>Find</span></div>
+
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#movies">Movies</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Discover Your Next Favorite Movie</h1>
+
+    <p>
+      Search thousands of movies and TV series
+      from around the world.
+    </p>
+
+    <form id="searchForm" class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search movies..."
+        required
+      >
+
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <main id="movies" class="container">
+
+    <div class="section-header">
+      <h2 id="sectionTitle">Find Movies</h2>
+
+      <select id="typeFilter">
+        <option value="">All</option>
+        <option value="movie">Movies</option>
+        <option value="series">TV Series</option>
+      </select>
+    </div>
+
+    <div id="message" class="message">
+      Search for a movie to get started.
+    </div>
+
+    <div id="movieGrid" class="movie-grid"></div>
+
+    <div id="pagination" class="pagination" hidden>
+      <button id="prevBtn">Previous</button>
+      <span id="pageInfo"></span>
+      <button id="nextBtn">Next</button>
+    </div>
+
+  </main>
+
+  <div id="movieModal" class="modal" hidden>
+    <div class="modal-content">
+
+      <button id="closeModal" class="close-btn"
+        aria-label="Close movie details">×</button>
+
+      <div id="movieDetails"></div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 CineFind. Movie Search App.</p>
+    <p>Powered by OMDb API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
