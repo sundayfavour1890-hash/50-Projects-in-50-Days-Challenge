@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <header>
+      <h1>GitHub Profile Finder</h1>
+      <p>Discover GitHub developers around the world</p>
+    </header>
+
+    <form id="searchForm" class="search-box">
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter GitHub username..."
+        aria-label="GitHub username"
+        required
+      >
+      <button type="submit" id="searchBtn">
+        Search
+      </button>
+    </form>
+
+    <p id="message" role="status" aria-live="polite"></p>
+
+    <section id="profile" class="profile-card" hidden>
+      <div class="profile-header">
+        <img id="avatar" alt="GitHub profile picture">
+
+        <div>
+          <h2 id="name"></h2>
+          <p id="login"></p>
+          <p id="joined"></p>
+        </div>
+      </div>
+
+      <p id="bio"></p>
+
+      <div class="stats">
+        <div>
+          <h3 id="repos"></h3>
+          <p>Repositories</p>
+        </div>
+        <div>
+          <h3 id="followers"></h3>
+          <p>Followers</p>
+        </div>
+        <div>
+          <h3 id="following"></h3>
+          <p>Following</p>
+        </div>
+      </div>
+
+      <div class="details">
+        <p id="location"></p>
+        <p id="company"></p>
+        <p id="website"></p>
+      </div>
+
+      <a id="profileLink" href="#" target="_blank"
+         rel="noopener noreferrer" class="profile-btn">
+        View GitHub Profile
+      </a>
+
+      <h3 class="repo-title">Latest Repositories</h3>
+      <div id="repoList"></div>
+    </section>
+
+    <footer>
+      <p>Built with HTML, CSS & JavaScript</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
