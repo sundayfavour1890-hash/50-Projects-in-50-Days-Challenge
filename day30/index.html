@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>EduTrack | Student Management Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">🎓 Edu<span>Track</span></div>
+
+    <p class="menu-label">MAIN MENU</p>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active"
+              data-page="dashboard">▦ Dashboard</button>
+      <button class="nav-item"
+              data-page="students">👥 Students</button>
+      <button class="nav-item"
+              data-page="attendance">📅 Attendance</button>
+      <button class="nav-item"
+              data-page="grades">📊 Grades</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <p>Student Management System</p>
+      <small>© 2026 EduTrack</small>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <button id="menuBtn" class="menu-btn">☰</button>
+        <div>
+          <h2 id="pageTitle">Dashboard Overview</h2>
+          <p>Manage your students efficiently</p>
+        </div>
+      </div>
+
+      <div class="admin-profile">
+        <div class="admin-avatar">AD</div>
+        <div>
+          <strong>Administrator</strong>
+          <small>School Admin</small>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- Dashboard -->
+      <section id="dashboardPage" class="page active">
+
+        <div class="welcome-banner">
+          <div>
+            <span>STUDENT MANAGEMENT</span>
+            <h1>Welcome to EduTrack 👋</h1>
+            <p>
+              Manage student records, attendance,
+              grades, and academic performance
+              from one dashboard.
+            </p>
+          </div>
+          <div class="banner-icon">🎓</div>
+        </div>
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <div class="stat-icon green">👥</div>
+            <p>Total Students</p>
+            <h2 id="totalStudents">0</h2>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon blue">📚</div>
+            <p>Active Students</p>
+            <h2 id="activeStudents">0</h2>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">📅</div>
+            <p>Attendance Rate</p>
+            <h2 id="attendanceRate">0%</h2>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">🏆</div>
+            <p>Average Grade</p>
+            <h2 id="averageGrade">0%</h2>
+          </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+          <div class="card">
+            <div class="card-heading">
+              <h3>Student Performance</h3>
+              <span>Grade Distribution</span>
+            </div>
+            <div id="performanceChart" class="chart"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-heading">
+              <h3>Quick Actions</h3>
+            </div>
+
+            <button class="quick-action"
+                    data-action="add">
+              ➕ Register New Student
+            </button>
+
+            <button class="quick-action"
+                    data-action="attendance">
+              📅 Manage Attendance
+            </button>
+
+            <button class="quick-action"
+                    data-action="grades">
+              📊 Manage Grades
+            </button>
+
+            <button class="quick-action"
+                    id="exportBtn">
+              ⬇ Export Student Records
+            </button>
+          </div>
+
+        </div>
+
+        <div class="card recent-card">
+          <div class="card-heading">
+            <h3>Recently Added Students</h3>
+            <button class="text-btn"
+                    data-action="students">
+              View All
+            </button>
+          </div>
+          <div id="recentStudents"></div>
+        </div>
+
+      </section>
+
+      <!-- Students Page -->
+      <section id="studentsPage" class="page">
+
+        <div class="section-header">
+          <div>
+            <h2>Student Records</h2>
+            <p>View and manage registered students.</p>
+          </div>
+
+          <button class="primary-btn" id="addStudentBtn">
+            + Add Student
+          </button>
+        </div>
+
+        <div class="card">
+
+          <div class="table-toolbar">
+            <input type="search"
+                   id="searchStudent"
+                   placeholder="Search name, ID or email...">
+
+            <select id="filterClass">
+              <option value="">All Classes</option>
+              <option value="JSS 1">JSS 1</option>
+              <option value="JSS 2">JSS 2</option>
+              <option value="JSS 3">JSS 3</option>
+              <option value="SS 1">SS 1</option>
+              <option value="SS 2">SS 2</option>
+              <option value="SS 3">SS 3</option>
+            </select>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Student ID</th>
+                  <th>Class</th>
+                  <th>Grade</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="studentTable"></tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Attendance Page -->
+      <section id="attendancePage" class="page">
+
+        <div class="section-header">
+          <div>
+            <h2>Attendance Management</h2>
+            <p>Mark student attendance for a selected date.</p>
+          </div>
+          <input type="date" id="attendanceDate">
+        </div>
+
+        <div class="card">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Attendance</th>
+                </tr>
+              </thead>
+              <tbody id="attendanceTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Grades Page -->
+      <section id="gradesPage" class="page">
+
+        <div class="section-header">
+          <div>
+            <h2>Student Grades</h2>
+            <p>Manage academic performance scores.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Score / 100</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody id="gradesTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+</div>
+
+<!-- Student Modal -->
+<div class="modal-overlay hidden" id="studentModal">
+
+  <div class="modal" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle">
+
+    <div class="modal-header">
+      <h2 id="modalTitle">Add New Student</h2>
+      <button id="closeModalBtn" aria-label="Close">✕</button>
+    </div>
+
+    <form id="studentForm">
+
+      <input type="hidden" id="editStudentId">
+
+      <div class="form-group">
+        <label for="studentName">Full Name</label>
+        <input type="text" id="studentName"
+               placeholder="Enter full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="studentEmail">Email Address</label>
+        <input type="email" id="studentEmail"
+               placeholder="student@example.com" required>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+          <label for="studentClass">Class</label>
+          <select id="studentClass" required>
+            <option value="">Select Class</option>
+            <option>JSS 1</option>
+            <option>JSS 2</option>
+            <option>JSS 3</option>
+            <option>SS 1</option>
+            <option>SS 2</option>
+            <option>SS 3</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="studentAge">Age</label>
+          <input type="number" id="studentAge"
+                 min="5" max="30" required>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="studentStatus">Status</label>
+        <select id="studentStatus">
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+
+      <button type="submit" class="primary-btn full-btn">
+        Save Student
+      </button>
+
+    </form>
+  </div>
+
+</div>
+
+<div id="toast" class="toast" role="status"
+     aria-live="polite"></div>
+
+</body>
+</html>

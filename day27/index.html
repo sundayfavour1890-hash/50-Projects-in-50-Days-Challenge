@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>ChatFlow | Chat Application</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-icon">💬</div>
+        <h2>Chat<span>Flow</span></h2>
+      </div>
+
+      <button id="themeBtn" class="icon-btn"
+              title="Toggle dark mode">☾</button>
+    </div>
+
+    <div class="my-profile">
+      <div class="avatar my-avatar">ME</div>
+      <div>
+        <h3>My Profile</h3>
+        <p>🟢 Available</p>
+      </div>
+    </div>
+
+    <div class="search-area">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="🔍 Search conversations..."
+        aria-label="Search conversations">
+    </div>
+
+    <div class="chat-label">
+      <h3>Messages</h3>
+      <span id="chatCount">0</span>
+    </div>
+
+    <div class="chat-list" id="chatList"></div>
+
+    <div class="sidebar-footer">
+      <p>💚 Stay connected with ChatFlow</p>
+    </div>
+
+  </aside>
+
+  <!-- Main Chat -->
+  <main class="chat-main" id="chatMain">
+
+    <header class="chat-header">
+
+      <button id="backBtn" class="back-btn"
+              aria-label="Back to conversations">
+        ←
+      </button>
+
+      <div class="chat-user">
+        <div class="avatar" id="headerAvatar">JD</div>
+
+        <div>
+          <h3 id="headerName">John Doe</h3>
+          <p id="headerStatus">Online</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="clearChatBtn" class="icon-btn"
+                title="Clear conversation"
+                aria-label="Clear conversation">
+          🗑
+        </button>
+      </div>
+
+    </header>
+
+    <section class="messages" id="messages"
+             aria-label="Chat messages"
+             aria-live="polite"></section>
+
+    <div class="emoji-picker hidden" id="emojiPicker">
+      <button type="button">😀</button>
+      <button type="button">😂</button>
+      <button type="button">😍</button>
+      <button type="button">❤️</button>
+      <button type="button">👍</button>
+      <button type="button">🎉</button>
+      <button type="button">😊</button>
+      <button type="button">🔥</button>
+      <button type="button">🙏</button>
+      <button type="button">💚</button>
+    </div>
+
+    <form class="message-form" id="messageForm">
+
+      <button type="button" id="emojiBtn"
+              class="icon-btn"
+              aria-label="Choose emoji">😊</button>
+
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Type a message..."
+        autocomplete="off"
+        maxlength="2000"
+        aria-label="Type a message"
+        required>
+
+      <button type="submit" class="send-btn"
+              aria-label="Send message">
+        ➤
+      </button>
+
+    </form>
+
+  </main>
+
+</div>
+
+</body>
+</html>

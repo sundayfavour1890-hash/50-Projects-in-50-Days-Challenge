@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>ShopEase | Premium Product Store</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="container navbar">
+
+      <a href="#" class="logo">🛍 Shop<span>Ease</span></a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#product">Products</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+
+      <button class="cart-icon" id="cartBtn"
+              aria-label="Open shopping cart">
+        🛒 Cart <span id="cartCount">0</span>
+      </button>
+
+    </nav>
+  </header>
+
+  <main class="container" id="home">
+
+    <div class="breadcrumb">
+      Home / Electronics / Headphones
+    </div>
+
+    <!-- Product -->
+    <section class="product-section" id="product">
+
+      <div class="product-gallery">
+
+        <div class="main-image">
+          <span class="discount-badge">25% OFF</span>
+
+          <img
+            id="mainProductImage"
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
+            alt="Premium wireless headphones">
+        </div>
+
+        <div class="thumbnails">
+          <button class="thumbnail active"
+                  data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800">
+            <img
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150"
+              alt="Headphones front view">
+          </button>
+
+          <button class="thumbnail"
+                  data-image="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800">
+            <img
+              src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=150"
+              alt="Headphones alternate view">
+          </button>
+
+          <button class="thumbnail"
+                  data-image="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800">
+            <img
+              src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=150"
+              alt="Headphones lifestyle view">
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Product Details -->
+      <div class="product-details">
+
+        <span class="category">PREMIUM AUDIO</span>
+
+        <h1>Wireless Bluetooth Headphones</h1>
+
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span>4.8 (128 Reviews)</span>
+        </div>
+
+        <div class="price-box">
+          <span class="current-price">$149.99</span>
+          <span class="old-price">$199.99</span>
+        </div>
+
+        <p class="description">
+          Experience incredible sound quality with our
+          premium wireless Bluetooth headphones.
+          Designed for comfort, powerful bass, and
+          crystal-clear audio throughout your day.
+        </p>
+
+        <div class="features-list">
+          <p>✓ High-quality stereo sound</p>
+          <p>✓ Up to 30 hours battery life</p>
+          <p>✓ Bluetooth wireless connectivity</p>
+          <p>✓ Comfortable over-ear design</p>
+          <p>✓ Built-in microphone</p>
+        </div>
+
+        <div class="option-group">
+          <h3>Choose Color</h3>
+
+          <div class="color-options">
+            <button class="color-option selected"
+                    data-color="Black"
+                    style="background:#222"
+                    aria-label="Black"
+                    title="Black"></button>
+
+            <button class="color-option"
+                    data-color="White"
+                    style="background:#e6e6e6"
+                    aria-label="White"
+                    title="White"></button>
+
+            <button class="color-option"
+                    data-color="Blue"
+                    style="background:#2764a5"
+                    aria-label="Blue"
+                    title="Blue"></button>
+          </div>
+
+          <p class="selected-text">
+            Selected: <span id="selectedColor">Black</span>
+          </p>
+        </div>
+
+        <div class="option-group">
+          <h3>Choose Size</h3>
+
+          <div class="size-options">
+            <button class="size-option selected"
+                    data-size="Standard">Standard</button>
+            <button class="size-option"
+                    data-size="Large">Large</button>
+          </div>
+        </div>
+
+        <div class="purchase-area">
+
+          <div class="quantity-selector">
+            <button id="decreaseBtn"
+                    aria-label="Decrease quantity">−</button>
+            <span id="quantity">1</span>
+            <button id="increaseBtn"
+                    aria-label="Increase quantity">+</button>
+          </div>
+
+          <button id="addToCartBtn" class="add-cart-btn">
+            🛒 Add to Cart
+          </button>
+
+        </div>
+
+        <p id="notification" role="status"
+           aria-live="polite"></p>
+
+        <div class="delivery-info">
+          <p>🚚 Free shipping on orders over $100</p>
+          <p>🔒 Secure checkout integration coming soon</p>
+          <p>↩ 30-day returns (demo policy)</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews-section" id="reviews">
+
+      <h2>Customer Reviews</h2>
+
+      <div class="review-grid">
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <h3>Excellent Sound Quality</h3>
+          <p>
+            "The sound is amazing and the headphones
+            are very comfortable."
+          </p>
+          <span>— Sarah M.</span>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <h3>Great Battery Life</h3>
+          <p>
+            "I love the design and battery performance.
+            Definitely worth trying."
+          </p>
+          <span>— Michael T.</span>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★☆</div>
+          <h3>Beautiful Design</h3>
+          <p>
+            "Stylish, comfortable and easy to connect
+            to my smartphone."
+          </p>
+          <span>— David K.</span>
+        </article>
+
+      </div>
+
+      <p class="demo-note">
+        Reviews and ratings are sample content
+        for demonstration purposes.
+      </p>
+
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-section">
+
+      <h2>You May Also Like</h2>
+
+      <div class="related-grid">
+
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=500"
+            alt="Wireless earbuds">
+          <h3>Wireless Earbuds</h3>
+          <p>$79.99</p>
+        </article>
+
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500"
+            alt="Bluetooth speaker">
+          <h3>Bluetooth Speaker</h3>
+          <p>$89.99</p>
+        </article>
+
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+            alt="Smart watch">
+          <h3>Smart Watch</h3>
+          <p>$129.99</p>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer"
+         aria-label="Shopping cart"
+         aria-hidden="true">
+
+    <div class="cart-header">
+      <h2>Your Shopping Cart</h2>
+      <button id="closeCartBtn"
+              aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="subtotal">
+        <strong>Subtotal</strong>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+
+      <button id="checkoutBtn" class="checkout-btn">
+        Proceed to Checkout
+      </button>
+    </div>
+
+  </aside>
+
+  <footer>
+    <p>© 2026 ShopEase. All Rights Reserved.</p>
+    <p>Designed with HTML, CSS and JavaScript.</p>
+  </footer>
+
+</body>
+</html>

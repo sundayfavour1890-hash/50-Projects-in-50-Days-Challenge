@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>QR Code Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- QR Code Library -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    defer>
+  </script>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <h2>🟢 QR<span>Craft</span></h2>
+      <p>Smart QR Code Generator</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="tag">FREE QR CODE GENERATOR</div>
+
+      <h1>Create Your QR Code</h1>
+
+      <p>
+        Turn links, text, emails, and phone numbers
+        into beautiful, scannable QR codes instantly.
+      </p>
+    </section>
+
+    <section class="generator">
+
+      <div class="form-section">
+
+        <h2>Generate QR Code</h2>
+        <p class="subtitle">
+          Enter your information below.
+        </p>
+
+        <form id="qrForm">
+
+          <label for="qrType">Content Type</label>
+
+          <select id="qrType">
+            <option value="text">Plain Text</option>
+            <option value="url">Website URL</option>
+            <option value="email">Email Address</option>
+            <option value="phone">Phone Number</option>
+          </select>
+
+          <label for="qrText">Your Content</label>
+
+          <textarea
+            id="qrText"
+            rows="4"
+            placeholder="Enter text or a website URL..."
+            maxlength="2000"
+            required></textarea>
+
+          <div class="settings">
+
+            <div>
+              <label for="qrSize">QR Code Size</label>
+
+              <select id="qrSize">
+                <option value="200">200 × 200</option>
+                <option value="250" selected>
+                  250 × 250
+                </option>
+                <option value="300">300 × 300</option>
+                <option value="400">400 × 400</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="qrColor">QR Code Color</label>
+              <input
+                type="color"
+                id="qrColor"
+                value="#16834a">
+            </div>
+
+            <div>
+              <label for="bgColor">Background Color</label>
+              <input
+                type="color"
+                id="bgColor"
+                value="#ffffff">
+            </div>
+
+          </div>
+
+          <button type="submit" class="generate-btn">
+            Generate QR Code
+          </button>
+
+        </form>
+
+      </div>
+
+      <div class="preview-section">
+
+        <h2>QR Code Preview</h2>
+
+        <p class="subtitle">
+          Your generated QR code appears here.
+        </p>
+
+        <div class="qr-preview">
+          <div id="placeholder">
+            <div class="placeholder-icon">▦</div>
+            <p>Your QR Code will appear here</p>
+          </div>
+
+          <div id="qrcode"></div>
+        </div>
+
+        <p id="message" role="status"
+           aria-live="polite"></p>
+
+        <div class="action-buttons">
+
+          <button id="downloadBtn" disabled>
+            ⬇ Download PNG
+          </button>
+
+          <button id="copyBtn" disabled>
+            📋 Copy QR Code
+          </button>
+
+          <button id="clearBtn" class="clear-btn"
+                  type="button">
+            Clear
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="features">
+
+      <h2>Why Use QRCraft?</h2>
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast Generation</h3>
+          <p>Create QR codes in seconds.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Customizable</h3>
+          <p>Choose your preferred colors and sizes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Mobile Friendly</h3>
+          <p>Works on smartphones and computers.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 QRCraft. All Rights Reserved.</p>
+    <p>Built with HTML, CSS and JavaScript.</p>
+  </footer>
+
+</body>
+</html>

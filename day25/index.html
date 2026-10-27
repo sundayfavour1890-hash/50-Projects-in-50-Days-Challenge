@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16834a">
+  <title>WordWise | Dictionary App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">📖 WordWise</a>
+      <span class="nav-text">Your Smart Dictionary</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <span class="eyebrow">LEARN SOMETHING NEW</span>
+      <h1>Discover the Power of Words</h1>
+      <p>
+        Search definitions, hear pronunciations,
+        explore synonyms and expand your vocabulary.
+      </p>
+
+      <form id="searchForm" class="search-box">
+        <input
+          type="search"
+          id="wordInput"
+          placeholder="Search for a word..."
+          aria-label="Search dictionary"
+          required
+        >
+        <button type="submit" id="searchBtn">
+          Search
+        </button>
+      </form>
+
+      <p class="suggestion">
+        Try:
+        <button class="suggest-word" data-word="serendipity">
+          Serendipity
+        </button>
+        <button class="suggest-word" data-word="resilience">
+          Resilience
+        </button>
+        <button class="suggest-word" data-word="innovation">
+          Innovation
+        </button>
+      </p>
+    </section>
+
+    <section id="status" class="status" role="status"
+      aria-live="polite"></section>
+
+    <section id="result" class="result-card hidden">
+      <div class="word-heading">
+        <div>
+          <h2 id="wordTitle"></h2>
+          <p id="phonetic"></p>
+        </div>
+
+        <div class="word-actions">
+          <button id="audioBtn" class="icon-btn"
+            title="Play pronunciation"
+            aria-label="Play pronunciation">
+            🔊
+          </button>
+          <button id="favoriteBtn" class="icon-btn"
+            title="Save favorite"
+            aria-label="Save favorite">
+            ♡
+          </button>
+        </div>
+      </div>
+
+      <div id="definitions"></div>
+    </section>
+
+    <div class="dashboard">
+      <section class="panel">
+        <div class="panel-header">
+          <h3>⭐ Favorite Words</h3>
+          <button id="clearFavorites" class="text-btn">
+            Clear
+          </button>
+        </div>
+        <div id="favoritesList" class="word-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>🕘 Recent Searches</h3>
+          <button id="clearHistory" class="text-btn">
+            Clear
+          </button>
+        </div>
+        <div id="historyList" class="word-list"></div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 WordWise Dictionary App</p>
+    <p>Learn a new word every day.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

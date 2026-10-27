@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16803c">
+  <title>Recipe Finder | Find Delicious Recipes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="#" class="logo">🍃 Recipe<span>Finder</span></a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#recipes">Recipes</a>
+        <button id="favoritesBtn" class="nav-button">
+          ❤️ Favorites <span id="favoriteCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <span class="hero-label">🍽️ Discover amazing meals</span>
+      <h1>Find Your Next <span>Delicious Recipe</span></h1>
+      <p>
+        Discover mouthwatering recipes from around the world.
+        Search, cook, and save your favorite meals in one place.
+      </p>
+
+      <form id="searchForm" class="search-box">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search chicken, rice, pasta..."
+          aria-label="Search recipes"
+          required
+        >
+        <button type="submit">🔍 Search</button>
+      </form>
+
+      <div class="popular-searches">
+        <span>Popular:</span>
+        <button type="button" data-search="Chicken">Chicken</button>
+        <button type="button" data-search="Beef">Beef</button>
+        <button type="button" data-search="Pasta">Pasta</button>
+        <button type="button" data-search="Fish">Fish</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipes Section -->
+  <main class="container recipes-section" id="recipes">
+    <div class="section-top">
+      <div>
+        <span class="eyebrow">EXPLORE FOOD</span>
+        <h2 id="sectionTitle">Discover Recipes</h2>
+        <p>Find something delicious to prepare today.</p>
+      </div>
+
+      <div class="filters">
+        <select id="categoryFilter" aria-label="Recipe category">
+          <option value="all">All Categories</option>
+        </select>
+
+        <button id="randomBtn" class="random-btn">
+          🎲 Surprise Me
+        </button>
+      </div>
+    </div>
+
+    <div id="message" class="message" role="status"></div>
+
+    <div id="recipeContainer" class="recipe-grid"></div>
+  </main>
+
+  <!-- Recipe Details Modal -->
+  <div id="recipeModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog"
+         aria-modal="true" aria-label="Recipe details">
+      <button id="closeModal" class="close-modal"
+              aria-label="Close recipe">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h3>🍃 RecipeFinder</h3>
+      <p>Making cooking easier, one recipe at a time.</p>
+      <p>Powered by TheMealDB API</p>
+      <p>&copy; <span id="year"></span> RecipeFinder.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
